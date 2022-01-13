@@ -1,1 +1,9 @@
-//
+@import "partials/variables";
+
+@import "partials/header";
+@import "partials/main";
+@import "partials/footer";
+
+h1 {
+    color: red;
+}

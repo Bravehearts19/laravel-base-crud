@@ -50,7 +50,7 @@ class ComicsController extends Controller
         $data = $request->all();
     
         /* $newComics = new Comics();                COMPRESO NEL "Comics::create($data)"
-           $newComics->fill($data);                     COMPRESO NEL "Comics::create($data)" */
+           $newComics->fill($data);                  COMPRESO NEL "Comics::create($data)" */
         $newComics = Comics::create($data);
     
         /* $newComics->save(); */                 /* COMPRESO NEL "Comics::create($data)" */
@@ -61,45 +61,51 @@ class ComicsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Comics $comic
      * @return \Illuminate\Http\Response
      */
-    public function show(Comics $comics)
+    public function show(Comics $comic)
     {
-        return view("comics.show", compact("comics"));
+        return view("pages.comics.show", compact("comic"));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Comics $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comics $comic)
     {
-        //
+        return view('pages.comics.edit', compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Comics $comic
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comics $comic)
     {
-        //
+        $data = $request->all();
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Comics $comic
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comics $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route("comics.index")->with("msg", "Fumetto rimosso correttamente");
     }
 }

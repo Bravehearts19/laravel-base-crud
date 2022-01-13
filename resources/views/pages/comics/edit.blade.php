@@ -4,7 +4,7 @@
 
 @section("content")
     <div class="container">
-        <h1>Creazione nuovo fumetto</h1>
+        <h1>Aggiornamento dati <strong>{{ $comic->title }}</strong></h1>
 
         @if($errors->any())
             <div class="alert alert-danger">
@@ -17,8 +17,9 @@
             </div>
         @endif
 
-        <form action="{{ route("comics.store") }}" method="post">
+        <form action="{{ route("comics.update", $comic->id)  }}" method="post">
             @csrf
+            @method('put')
 
             <div class="mb-3">
                 <label for="field_title" class="form-label">Titolo</label>
