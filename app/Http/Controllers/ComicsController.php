@@ -39,11 +39,11 @@ class ComicsController extends Controller
     {
         $request->validate([
             "title" => "required|min:3",
-            /* "description" => "required| ", */
-            "thumb" => "required",
-            "price" => "required|numeric|gt:0",
-            /* "series" => "required| ", */
-            "sale_date" => "required|date",
+            "description" => "required| ",
+            /* "thumb" => "required", */
+            /* "price" => "required|numeric|gt:0", */
+            "series" => "required| ",
+            /* "sale_date" => "required|date", */
             /* "type" => "required| " */
         ]);
     

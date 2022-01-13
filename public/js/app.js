@@ -19386,10 +19386,10 @@ window.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var comicTitle = form.comicTitle;
-      var msg = "Sei sicuro di voler cancellare questo utente? L'operazione sarà irreversibile.";
+      var msg = "Sei sicuro di voler cancellare questo fumetto? L'operazione sarà irreversibile.";
 
       if (comicTitle) {
-        msg = "Sei sicuro di voler cancellare l'utente ".concat(comicTitle.value, "? L'operazione sar\xE0 irreversibile.");
+        msg = "Sei sicuro di voler cancellare il fumetto ".concat(comicTitle.value, "? L'operazione sar\xE0 irreversibile.");
       }
 
       var result = confirm(msg);
